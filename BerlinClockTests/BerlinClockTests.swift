@@ -107,5 +107,74 @@ final class BerlinClockTests: XCTestCase {
         XCTAssertEqual(clock?.getFiveHourRow(), [Light.red, Light.red, Light.red, Light.off])
     }
 
-    
+    // MARK: - Single hours row
+
+    func testSingleHoursRowLength() throws {
+        guard let date = dateFormatter.date(from: "00:00:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow().count, 4)
+    }
+
+    // Given I have started the converter
+    // When I enter 00:00:00
+    // Then OOOO is returned for the seconds lamp
+    func testSingleHoursRowAllOff() throws {
+        guard let date = dateFormatter.date(from: "00:00:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow(), [Light.off, Light.off, Light.off, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 23:59:59
+    // Then RRRO is returned for the seconds lamp
+    func testSingleHoursRowMidnight() throws {
+        guard let date = dateFormatter.date(from: "23:59:59") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow(), [Light.red, Light.red, Light.red, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 02:04:00
+    // Then RROO is returned for the seconds lamp
+    func testSingleHoursRowTwoLights() throws {
+        guard let date = dateFormatter.date(from: "02:04:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow(), [Light.red, Light.red, Light.off, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 08:23:00
+    // Then RRRO is returned for the seconds lamp
+    func testSingleHoursRowThreeLightOn() throws {
+        guard let date = dateFormatter.date(from: "08:23:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow(), [Light.red, Light.red, Light.red, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 14:35:00
+    // Then RRRR is returned for the seconds lamp
+    func testSingleHoursRowAllLightsOn() throws {
+        guard let date = dateFormatter.date(from: "14:35:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleHourRow(), [Light.red, Light.red, Light.red, Light.red])
+    }
 }

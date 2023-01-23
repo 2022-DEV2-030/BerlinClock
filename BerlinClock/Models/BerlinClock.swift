@@ -25,4 +25,13 @@ struct BerlinClock: BerlinClockProtocol {
         let lightsOff = [Light](repeating: .off, count: totalNumberOfLightsInRow - fraction)
         return lightsOn + lightsOff
     }
+
+    func getSingleHourRow() -> [Light] {
+        let totalNumberOfLightsInRow = 4
+        let time = calendar.dateComponents([.hour], from: date)
+        let remainder = (time.hour ?? 0) % 5
+        let lightsOn = [Light](repeating: .red, count: remainder)
+        let lightsOff = [Light](repeating: .off, count: totalNumberOfLightsInRow - remainder)
+        return lightsOn + lightsOff
+    }
 }
