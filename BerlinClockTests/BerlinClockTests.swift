@@ -36,7 +36,7 @@ final class BerlinClockTests: XCTestCase {
         XCTAssertEqual(clock?.getSeconds(), Light.off)
     }
 
-    // MARK: - Five hour row
+    // MARK: - Five hours row
 
     func testFiveHoursRowLength() throws {
         guard let date = dateFormatter.date(from: "00:00:00") else {
