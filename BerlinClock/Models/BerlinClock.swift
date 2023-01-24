@@ -1,6 +1,6 @@
 import Foundation
 
-struct BerlinClock: BerlinClockProtocol {
+struct BerlinClock {
 
     // Public properties
 
@@ -9,8 +9,11 @@ struct BerlinClock: BerlinClockProtocol {
     // Private properties
 
     private let calendar = Calendar.current
+}
 
-    // Public methods
+// MARK: - BerlinClockProtocol
+
+extension BerlinClock: BerlinClockProtocol {
 
     func getSeconds() -> Light {
         let time = calendar.dateComponents([.second], from: date)
@@ -41,6 +44,15 @@ struct BerlinClock: BerlinClockProtocol {
         let fraction = (time.minute ?? 0) / 5
         let lightsOn = (0..<fraction).map { ($0 + 1) % 3 == 0 ? Light.red : Light.yellow }
         let lightsOff = [Light](repeating: .off, count: totalNumberOfLightsInRow - fraction)
+        return lightsOn + lightsOff
+    }
+
+    func getSingleMinutesRow() -> [Light] {
+        let totalNumberOfLightsInRow = 4
+        let time = calendar.dateComponents([.minute], from: date)
+        let remainder = (time.minute ?? 0) % 5
+        let lightsOn = [Light](repeating: .yellow, count: remainder)
+        let lightsOff = [Light](repeating: .off, count: totalNumberOfLightsInRow - remainder)
         return lightsOn + lightsOff
     }
 }

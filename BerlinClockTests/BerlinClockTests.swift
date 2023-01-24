@@ -258,4 +258,75 @@ final class BerlinClockTests: XCTestCase {
                        [Light.yellow, Light.yellow, Light.red, Light.yellow, Light.yellow, Light.red,
                         Light.yellow, Light.off, Light.off, Light.off, Light.off])
     }
+
+    // MARK: - Single minutes row
+
+    func testSingleMinutesRowLength() throws {
+        guard let date = dateFormatter.date(from: "00:00:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow().count, 4)
+    }
+
+    // Given I have started the converter
+    // When I enter 00:00:00
+    // Then OOOO is returned for the single minutes row
+    func testSingleMinutesRowAllOff() throws {
+        guard let date = dateFormatter.date(from: "00:00:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.off, Light.off, Light.off, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 23:59:59
+    // Then YYYY is returned for the single minutes row
+    func testSingleMinutesRowMidnight() throws {
+        guard let date = dateFormatter.date(from: "23:59:59") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.yellow, Light.yellow, Light.yellow, Light.yellow])
+    }
+
+    // Given I have started the converter
+    // When I enter 12:32:00
+    // Then YYOO is returned for the single minutes row
+    func testSingleMinutesRowTwoLights() throws {
+        guard let date = dateFormatter.date(from: "12:32:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.yellow, Light.yellow, Light.off, Light.off])
+    }
+
+    // Given I have started the converter
+    // When I enter 12:34:00
+    // Then YYYY is returned for the single minutes row
+    func testSingleMinutesRowFourLightsOn() throws {
+        guard let date = dateFormatter.date(from: "12:34:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.yellow, Light.yellow, Light.yellow, Light.yellow])
+    }
+
+    // Given I have started the converter
+    // When I enter 12:35:00
+    // Then OOOO is returned for the single minutes row
+    func testSingleMinutesRowFourLightsOff() throws {
+        guard let date = dateFormatter.date(from: "12:35:00") else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.off, Light.off, Light.off, Light.off])
+    }
 }
