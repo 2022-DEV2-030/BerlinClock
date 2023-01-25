@@ -21,6 +21,7 @@
 		22A6311F298113CF0041E6F9 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6311E298113CF0041E6F9 /* ClockView.swift */; };
 		22A631212981165E0041E6F9 /* LightsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A631202981165E0041E6F9 /* LightsRowView.swift */; };
 		22A63124298119950041E6F9 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A63123298119950041E6F9 /* TimerService.swift */; };
+		22A6312729811C5C0041E6F9 /* ClockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6312629811C5C0041E6F9 /* ClockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		22A6311E298113CF0041E6F9 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		22A631202981165E0041E6F9 /* LightsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsRowView.swift; sourceTree = "<group>"; };
 		22A63123298119950041E6F9 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		22A6312629811C5C0041E6F9 /* ClockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		22019F38297E9E9100475345 /* BerlinClock */ = {
 			isa = PBXGroup;
 			children = (
+				22A6312529811C390041E6F9 /* ViewModels */,
 				22A63122298119870041E6F9 /* Services */,
 				22019F70297FF2FD00475345 /* Views */,
 				22019F69297EACC400475345 /* Models */,
@@ -166,6 +169,14 @@
 				22A63123298119950041E6F9 /* TimerService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		22A6312529811C390041E6F9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				22A6312629811C5C0041E6F9 /* ClockViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +340,7 @@
 				22019F3A297E9E9100475345 /* BerlinClockApp.swift in Sources */,
 				22A631212981165E0041E6F9 /* LightsRowView.swift in Sources */,
 				22A63124298119950041E6F9 /* TimerService.swift in Sources */,
+				22A6312729811C5C0041E6F9 /* ClockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

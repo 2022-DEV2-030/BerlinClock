@@ -8,7 +8,7 @@ struct LightView: View {
         Circle()
             .strokeBorder(.black, lineWidth: 2)
             .background(Circle().fill(lightColor(light: light)))
-            .frame(width: 30, height: 30)
+            .frame(width: 25, height: 25)
     }
 }
 

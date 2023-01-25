@@ -2,16 +2,15 @@ import SwiftUI
 
 struct ClockView: View {
 
-    @State private var light = Light.off
-    @State private var lights = [Light.off, Light.off, Light.off, Light.off ]
+    @StateObject private var viewModel = ClockViewModel()
 
     var body: some View {
         VStack {
-            LightView(light: $light)
-            LightsRowView(lights: $lights)
-            LightsRowView(lights: $lights)
-            LightsRowView(lights: $lights)
-            LightsRowView(lights: $lights)
+            LightView(light: $viewModel.secondsLight)
+            LightsRowView(lights: $viewModel.fiveHoursLights)
+            LightsRowView(lights: $viewModel.singleHoursLights)
+            LightsRowView(lights: $viewModel.fiveMinutesLights)
+            LightsRowView(lights: $viewModel.singleMinutesLights)
             Text("12:12:12")
         }
     }
