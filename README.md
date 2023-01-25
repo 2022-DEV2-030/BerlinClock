@@ -1,6 +1,6 @@
 # Berlin Clock
 
-![Alt text](images/Kata_BerlinClock.png?raw=true "Berlin Clock")
+![Alt text](https://raw.githubusercontent.com/stephane-genicot/katas/master/images/Kata_BerlinClock.png "Berlin Clock")
 
 ## Setup
 
