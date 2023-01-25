@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ClockView: View {
 
+    // MARK: - Private properties
+
     @StateObject private var viewModel = ClockViewModel()
+
+    // MARK: - View
 
     var body: some View {
         VStack {

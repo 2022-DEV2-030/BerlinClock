@@ -3,6 +3,8 @@ import Combine
 
 class ClockViewModel: ObservableObject {
 
+    // MARK: - Public properties
+
     @Published var timeString = ""
     @Published var secondsLight = Light.off
     @Published var fiveHoursLights = [Light](repeating: .off, count: 4)
@@ -10,9 +12,12 @@ class ClockViewModel: ObservableObject {
     @Published var fiveMinutesLights = [Light](repeating: .off, count: 11)
     @Published var singleMinutesLights = [Light](repeating: .off, count: 4)
 
-    private let timerService = TimerService()
+    // MARK: - Private properties
 
+    private let timerService = TimerService()
     private var cancellables = Set<AnyCancellable>()
+
+    // MARK: - Init
 
     init() {
         timerService

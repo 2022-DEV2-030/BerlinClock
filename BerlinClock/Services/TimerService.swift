@@ -2,6 +2,8 @@ import Foundation
 
 final class TimerService {
 
+    // MARK: - Public properties
+
     @Published var timePublisher = Date()
 
     // MARK: - Init

@@ -2,11 +2,11 @@ import Foundation
 
 struct BerlinClock {
 
-    // Public properties
+    // MARK: - Public properties
 
     let date: Date
 
-    // Private properties
+    // MARK: - Private properties
 
     private let calendar = Calendar.current
 }

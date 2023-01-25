@@ -2,7 +2,11 @@ import SwiftUI
 
 struct LightsRowView: View {
 
+    // MARK: - Public properties
+
     @Binding var lights: [Light]
+
+    // MARK: - View
 
     var body: some View {
         HStack {

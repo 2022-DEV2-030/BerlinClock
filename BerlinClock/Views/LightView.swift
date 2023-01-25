@@ -2,7 +2,11 @@ import SwiftUI
 
 struct LightView: View {
 
+    // MARK: - Public properties
+
     @Binding var light: Light
+
+    // MARK: - View
 
     var body: some View {
         Circle()
