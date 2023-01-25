@@ -323,4 +323,35 @@ final class BerlinClockTests: XCTestCase {
         clock = BerlinClock(date: date)
         XCTAssertEqual(clock?.getSingleMinutesRow(), [Light.off, Light.off, Light.off, Light.off])
     }
+
+    // MARK: - Time formats
+    func testTimeFormat1() throws {
+        let input = "12:35:00"
+        guard let date = DateFormatters.timeFormat.date(from: input) else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getFormattedTime(), input)
+    }
+
+    func testTimeFormat2() throws {
+        let input = "00:00:00"
+        guard let date = DateFormatters.timeFormat.date(from: input) else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getFormattedTime(), input)
+    }
+
+    func testTimeFormat3() throws {
+        let input = "23:59:59"
+        guard let date = DateFormatters.timeFormat.date(from: input) else {
+            XCTFail("Error parsing date")
+            return
+        }
+        clock = BerlinClock(date: date)
+        XCTAssertEqual(clock?.getFormattedTime(), input)
+    }
 }

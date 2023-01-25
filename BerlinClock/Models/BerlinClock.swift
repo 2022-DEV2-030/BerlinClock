@@ -55,4 +55,8 @@ extension BerlinClock: BerlinClockProtocol {
         let lightsOff = [Light](repeating: .off, count: totalNumberOfLightsInRow - remainder)
         return lightsOn + lightsOff
     }
+
+    func getFormattedTime() -> String {
+        return DateFormatters.timeFormat.string(from: date)
+    }
 }
