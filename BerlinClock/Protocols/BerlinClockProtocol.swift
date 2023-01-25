@@ -6,5 +6,5 @@ protocol BerlinClockProtocol {
     func getSingleHourRow() -> [Light]
     func getFiveMinutesRow() -> [Light]
     func getSingleMinutesRow() -> [Light]
-    func getFormattedTime() -> String 
+    func getFormattedTime() -> String
 }
