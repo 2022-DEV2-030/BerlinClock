@@ -24,6 +24,7 @@ class ClockViewModel: ObservableObject {
                 self?.singleHoursLights = berlinClock.getSingleHourRow()
                 self?.fiveMinutesLights = berlinClock.getFiveMinutesRow()
                 self?.singleMinutesLights = berlinClock.getSingleMinutesRow()
+                self?.timeString = berlinClock.getFormattedTime()
             }
             .store(in: &cancellables)
     }

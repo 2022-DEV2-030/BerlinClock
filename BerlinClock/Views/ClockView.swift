@@ -11,7 +11,7 @@ struct ClockView: View {
             LightsRowView(lights: $viewModel.singleHoursLights)
             LightsRowView(lights: $viewModel.fiveMinutesLights)
             LightsRowView(lights: $viewModel.singleMinutesLights)
-            Text("12:12:12")
+            Text(viewModel.timeString)
         }
     }
 }
